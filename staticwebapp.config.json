@@ -1,0 +1,45 @@
+{
+    "routes": [
+      {
+        "route": "/",
+        "allowedRoles": ["anonymous"]
+      },
+      {
+        "route": "/about",
+        "allowedRoles": ["anonymous"]
+      },
+      {
+        "route": "/contact",
+        "allowedRoles": ["anonymous"]
+      },
+      {
+        "route": "/profile*",
+        "allowedRoles": ["authenticated"]
+      },
+      {
+        "route": "/health",
+        "allowedRoles": ["anonymous"]
+      },
+      {
+        "route": "*",
+        "allowedRoles": ["anonymous"]
+      },
+      {
+        "route": "/",
+        "allowedRoles": ["authenticated"],
+        "statusCode": 404,
+        "contentType": "text/html; charset=utf-8",
+        "responseOverrides": {
+          "responseBody": "<h1>404 - Not Found</h1><p>The resource you are looking for could not be found.</p>"
+        }
+      }
+    ],
+    "navigationFallback": {
+      "rewrite": "/index.html"
+    },
+    "globalHeaders": {
+      "cache-control": "no-store, must-revalidate"
+    },
+    "trailingSlash": "auto"
+  }
+  
